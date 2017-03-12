@@ -1,0 +1,278 @@
+body {
+    font-family: "Lato",sans-serif;
+    margin: 0;
+    font-size: 1.2vw;
+}
+
+#nav {
+    border-top: 1px solid #999;
+    border-right: 1px solid #999;
+    border-left: 1px solid #999;
+}
+
+#sidebar {
+    position: relative;
+    height: 100vh;
+    float: left;
+    width: 12.5%;
+    font-size: 1.25em;
+    color: white;
+    box-sizing: border-box;
+    background: linear-gradient(15deg,#1d1c1c,#252424);
+    padding: 2%;
+    z-index: +100;
+}
+
+#sidebar > span {
+    font-weight: 400;
+    font-size: 1.2em;
+}
+
+#sidebar ul {
+    padding: 0;
+    font-weight: 300;
+    color: #aeadad;
+}
+
+#sidebar ul li {
+    display: block;
+    margin-bottom: 0.75em;
+    cursor:pointer;
+}
+
+#sidebar ul li.active {
+    color: #f0b712;
+}
+
+ul#nav {
+    padding: 0;
+    font-size: 0;
+    margin: 0;
+    position: relative;
+    display: inline-block;
+    max-width: 80%;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+#nav li.enabled {
+    width:20vw;
+}
+
+#nav li {
+    width: 0vw;
+    position: relative;
+    height: 30em;
+    animation:palette 0.5s 1 ease-out;
+    overflow: hidden;
+}
+@keyframes palette {
+    from {
+        margin-left:-10%;
+    }
+}
+
+#nav li > .escape {
+    padding-right:3vw;
+    border:none;
+    outline:none;
+    padding-top:1vw;
+    font-size:1.5em;
+    position:absolute;
+    top:0;
+    right:0;
+    background:none;
+    cursor:pointer;
+    color:rgba(50,50,50,0.6);
+    pointer-events:none;
+    transition:opacity 0.5s;
+    opacity:0;
+}
+#nav li.open > .escape {
+    transition:opacity 0.5s 0.5s;
+    pointer-events:all;
+    opacity:1;
+}
+
+#nav li a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    height: 100%;
+}
+
+#nav li a > .back {
+    background-size: cover;
+    background-position: 50% 50%;
+    height: 55%;
+    transition: height 0.5s, transform 0.25s;
+    will-change: transform;
+}
+
+#nav li a > .label {
+    background: inherit;
+    height: 45%;
+    text-align: right;
+    box-sizing: border-box;
+    padding: 10%;
+}
+
+#nav li.stacked a > .label > span {
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.3s;
+}
+
+#nav li.stacked a > .label::after {
+    opacity: 1;
+    transition: opacity 0.3s 0.5s;
+}
+
+#nav li a > .label > .title {
+    display: block;
+    font-size: 1.75em;
+    line-height: 1.5;
+    margin-bottom: 0.5em;
+}
+
+#nav li a > .label > .cite {
+    font-family: "Georgia",serif;
+    display: block;
+    line-height: 1.4em;
+    width: 16vw;
+}
+
+#nav li a > .label > .anchor {
+    display: block;
+    margin-top: 2em;
+    font-weight: bolder;
+    color: rgba(50,50,50,0.6);
+    white-space: nowrap;
+}
+
+#nav li > label {
+    height: 100%;
+    width: 100%;
+    bottom: 0;
+    right: 100%;
+    opacity: 0;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: inherit;
+    transition: right 0.5s 0.5s, opacity 0.5s;
+}
+
+#nav li > label > span {
+    font-size: 2.3vw;
+    transform-origin: 0% 0%;
+    line-height: 8vw;
+    font-weight: 400;
+    position: absolute;
+    top: 95%;
+    color: white;
+    display: block;
+    transform: rotateZ(-90deg);
+    left: 0;
+}
+
+#nav li.stacked > label {
+    right: 0;
+    opacity: 1;
+    transition: right 0.5s 0.5s, opacity 0.2s 0.5s;
+}
+
+#nav li.open {
+    width: 50vw;
+    pointer-events:none;
+}
+
+#nav li:not(.enabled) {
+    width:0vw !important;
+}
+
+#nav li.open a > .back {
+    height: 100%;
+    transition: transform;
+    transform: none;
+    transition: transform 0.5s, height 0.5s 0.5s;
+}
+
+#nav li.stacked {
+    width: 10%;
+}
+
+#nav li section {
+    display: flex;
+    background: inherit;
+    position: absolute;
+    overflow: hidden;
+    padding: 3vw;
+    padding-left: 10%;
+    right: unset;
+    height: 100%;
+    left: 100%;
+    transition:left 0.5s ease-out;
+    top: 0;
+    width: 35vw;
+    color: #fff;
+    font-weight: 300;
+    box-sizing: border-box;
+    text-align: right;
+    flex-direction:column;
+}
+#nav li section p {
+    font-size:1em;
+}
+#nav li section h3 {
+    font-size:1.6em;
+    letter-spacing:0.06em;
+    webkit: mixed;
+}
+#nav li section > span {
+    font-weight:bolder;
+    font-size:1.2em;
+    color:rgba(50,50,50,0.6);
+    position:absolute;
+    bottom:0;
+    width:100%;
+    left: 0;
+    padding: inherit;
+    box-sizing: border-box;
+    cursor: pointer;
+    pointer-events:all;
+}
+#nav li.open a > .back {
+    transform:translateX(-50%);
+    transition: transform 0.7s cubic-bezier(0, 0, 0, 1) 0.7s,height 0.5s;
+}
+#nav li.open section {
+    display: flex;
+    left:30%;
+    transition: left 0.5s 0.5s;
+}
+
+#nav li ul li a {
+    padding: 10px 25px;
+    border-bottom: 1px dotted #ccc;
+}
+
+#nav li {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0px;
+    border: none;
+    font-size: 1.2vw;
+    transition: width 0.5s;
+    white-space: initial;
+}
+
+#nav {
+    border: none;
+}
+
+#nav li a {
+    border: none;
+    border-radius: 10px;
+}

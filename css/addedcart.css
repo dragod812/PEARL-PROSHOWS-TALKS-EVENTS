@@ -1,0 +1,37 @@
+
+.addedtocart{
+	background: #2DC0B1;
+	padding: 10px;
+	
+	display: inline-block;
+	position:fixed;
+	bottom: 0;
+	right: 50%;
+	transform: translateX(50%);
+	border-radius: 5px;
+	
+}
+.gotocart{
+	background: #F0B212;
+	display: block;
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	padding: 10px;
+	
+	transition: all 0.4s;
+	border-radius: 5px;
+}
+.gotocart:hover{
+	cursor: pointer;
+	background: #EA1A33;
+	color: white;
+}
+.shopping-cart {
+    display: inline-block;
+    background: url('http://cdn1.iconfinder.com/data/icons/jigsoar-icons/24/_cart.png') no-repeat 0 0;
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+    margin: 0 10px 0 0;
+}
